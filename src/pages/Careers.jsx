@@ -36,29 +36,9 @@ const perks = [
 
 const jobs = [
   {
-    title: "Senior Frontend Developer (React)",
-    tags: ["Full-time", "Remote", "Engineering"],
-    desc: "Build polished, high-performance user interfaces for our client projects using React and modern tooling.",
-  },
-  {
-    title: "Backend Engineer (Node.js / Python)",
-    tags: ["Full-time", "Hybrid", "Engineering"],
-    desc: "Design and build scalable APIs and services powering enterprise-grade applications.",
-  },
-  {
-    title: "Cloud / DevOps Engineer",
-    tags: ["Full-time", "Remote", "Infrastructure"],
-    desc: "Own CI/CD pipelines, infrastructure as code, and cloud reliability across AWS and Azure environments.",
-  },
-  {
-    title: "UI/UX Designer",
-    tags: ["Full-time", "Hybrid", "Design"],
-    desc: "Craft intuitive, beautiful experiences from research and wireframes through polished design systems.",
-  },
-  {
-    title: "Project Manager",
-    tags: ["Full-time", "On-site", "Delivery"],
-    desc: "Lead agile delivery teams, keep stakeholders aligned, and ensure projects ship on time and on budget.",
+    title: "Customer Service Supervisor",
+    tags: ["Full-time", "Customer Service", "£31,000 – £35,000"],
+    desc: "The Customer Service Supervisor is responsible for leading and co-ordinating the customer service team to ensure customers receive a high standard of support. The role involves handling complex or sensitive customer queries and complaints, planning and delivering team training, and managing staff schedules to meet business requirements. The supervisor works closely with managers to review customer feedback, identify operational issues, and recommend improvements to products, services, and customer experience.",
   },
 ];
 
