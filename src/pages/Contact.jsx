@@ -44,7 +44,11 @@ export default function Contact() {
                 <div className="ci">📞</div>
                 <div>
                   <strong>Phone</strong>
-                  <span>+1 (234) 567-890</span>
+                  <span>
+                    Vishal (Owner)
+                    <br />
+                    +44 7557 361304
+                  </span>
                 </div>
               </div>
 
