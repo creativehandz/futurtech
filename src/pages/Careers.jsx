@@ -1,5 +1,8 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import PageHeader from "../components/PageHeader";
+
+const APPLICATION_EMAIL = "prasharpranav@gmail.com";
 
 const perks = [
   {
@@ -42,9 +45,112 @@ const jobs = [
   },
 ];
 
+function ApplyModal({ job, onClose }) {
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div
+        className="modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="apply-modal-title"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button className="modal-close" aria-label="Close" onClick={onClose}>
+          ×
+        </button>
+        <h3 id="apply-modal-title">Apply for {job.title}</h3>
+        <p className="modal-sub">
+          Fill in your details and attach your resume — we'll get back to you
+          soon.
+        </p>
+
+        <form
+          action={`https://formsubmit.co/${APPLICATION_EMAIL}`}
+          method="POST"
+          encType="multipart/form-data"
+        >
+          <input type="hidden" name="position" value={job.title} />
+          <input
+            type="hidden"
+            name="_subject"
+            value={`Job Application: ${job.title}`}
+          />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value={`${window.location.origin}/careers?applied=1`}
+          />
+
+          <div className="form-row">
+            <div className="form-group">
+              <label htmlFor="app-name">Full Name *</label>
+              <input id="app-name" name="name" type="text" required placeholder="John Smith" />
+            </div>
+            <div className="form-group">
+              <label htmlFor="app-email">Email Address *</label>
+              <input id="app-email" name="email" type="email" required placeholder="john@example.com" />
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="app-phone">Phone Number *</label>
+            <input id="app-phone" name="phone" type="tel" required placeholder="+44 7000 000000" />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="app-resume">Resume / CV * (PDF or Word)</label>
+            <input
+              id="app-resume"
+              name="attachment"
+              type="file"
+              required
+              accept=".pdf,.doc,.docx"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="app-message">Cover Note</label>
+            <textarea
+              id="app-message"
+              name="message"
+              rows="4"
+              placeholder="Tell us briefly why you're a great fit for this role..."
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary">
+            Submit Application
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
 export default function Careers() {
+  const [activeJob, setActiveJob] = useState(null);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const applied = searchParams.get("applied") === "1";
+
   return (
     <>
+      {activeJob && (
+        <ApplyModal job={activeJob} onClose={() => setActiveJob(null)} />
+      )}
       <PageHeader
         title="Careers at FuturTech"
         subtitle="Do the best work of your career alongside people who care about craft, impact, and each other."
@@ -83,6 +189,18 @@ export default function Careers() {
             </p>
           </div>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            {applied && (
+              <div className="form-success">
+                ✓ Thank you! Your application has been submitted successfully.
+                We'll be in touch soon.{" "}
+                <button
+                  className="dismiss-link"
+                  onClick={() => setSearchParams({}, { replace: true })}
+                >
+                  Dismiss
+                </button>
+              </div>
+            )}
             {jobs.map((j) => (
               <div className="job-card" key={j.title}>
                 <div>
@@ -96,12 +214,12 @@ export default function Careers() {
                   </div>
                   <p className="job-desc">{j.desc}</p>
                 </div>
-                <a
-                  href={`mailto:careers@futurtech.com?subject=Application: ${encodeURIComponent(j.title)}`}
-                  className="btn btn-primary"
+                <button
+                  className="btn btn-primary btn-apply"
+                  onClick={() => setActiveJob(j)}
                 >
                   Apply Now
-                </a>
+                </button>
               </div>
             ))}
           </div>

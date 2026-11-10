@@ -190,6 +190,22 @@ ul {
   margin-left: 10px;
 }
 
+/* Keep CTA text white despite .nav-links a color rules */
+.nav-links a.nav-cta {
+  color: var(--white);
+}
+
+.nav-links a.nav-cta:hover,
+.nav-links a.nav-cta.active {
+  color: var(--white);
+  background: var(--blue-700);
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;
+}
+
 .nav-toggle {
   display: none;
   background: none;
@@ -623,6 +639,84 @@ ul {
   color: var(--gray-500);
   font-size: 0.95rem;
   margin-top: 8px;
+}
+
+.btn-apply {
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dismiss-link {
+  background: none;
+  border: none;
+  color: #1a7a3e;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: underline;
+  font-family: var(--font);
+  font-size: 0.9rem;
+}
+
+/* ---------- Modal ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 37, 64, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal {
+  position: relative;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  padding: 36px 32px;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal h3 {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  padding-right: 32px;
+}
+
+.modal-sub {
+  color: var(--gray-500);
+  font-size: 0.95rem;
+  margin-bottom: 24px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: var(--blue-50);
+  color: var(--blue-800);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.modal-close:hover {
+  background: var(--blue-100);
+}
+
+.modal input[type="file"] {
+  padding: 10px;
+  background: var(--blue-50);
+  cursor: pointer;
 }
 
 /* ---------- Contact ---------- */
