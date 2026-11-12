@@ -56,7 +56,7 @@ export default function Contact() {
                 <div className="ci">✉️</div>
                 <div>
                   <strong>Email</strong>
-                  <span>hello@futurtech.com</span>
+                  <span>info@futurtech.co.uk</span>
                 </div>
               </div>
 

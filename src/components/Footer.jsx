@@ -41,7 +41,7 @@ export default function Footer() {
           <div>
             <h4>Get in Touch</h4>
             <ul className="footer-links">
-              <li><a href="mailto:info@futurtech.com">info@futurtech.com</a></li>
+              <li><a href="mailto:info@futurtech.co.uk">info@futurtech.co.uk</a></li>
               <li><a href="tel:+447557361304">+44 7557 361304</a></li>
               <li>
                 Registered office<br />
