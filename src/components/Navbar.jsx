@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
-import logo from "../assets/logo.png";
+import logo from "../assets/future-tech-logo.webp";
 
 const links = [
   { to: "/", label: "Home" },
@@ -17,7 +17,7 @@ export default function Navbar() {
     <header className="navbar">
       <div className="container navbar-inner">
         <Link to="/" className="brand" onClick={() => setOpen(false)}>
-          <img src={logo} alt="FuturTech" className="brand-logo" />
+          <img src={logo} alt="Future Tech Co UK" className="brand-logo" />
         </Link>
 
         <button

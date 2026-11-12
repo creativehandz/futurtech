@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import logo from "../assets/future-tech-logo.webp";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -8,10 +9,9 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           <div>
-            <div className="brand">
-              <span className="brand-mark">FT</span>
-              Futur<span>Tech</span>
-            </div>
+            <Link to="/" className="brand footer-brand" aria-label="Future Tech Co UK home">
+              <img src={logo} alt="Future Tech Co UK" className="brand-logo" />
+            </Link>
             <p className="footer-about">
               FuturTech delivers innovative technology solutions that help
               businesses modernize, scale, and stay ahead in a digital-first
@@ -43,7 +43,11 @@ export default function Footer() {
             <ul className="footer-links">
               <li><a href="mailto:info@futurtech.com">info@futurtech.com</a></li>
               <li><a href="tel:+447557361304">+44 7557 361304</a></li>
-              <li>100 Innovation Drive,<br />Tech City, TC 10100</li>
+              <li>
+                Registered office<br />
+                167-169 Great Portland Street,<br />
+                London, England, W1W 5PF
+              </li>
             </ul>
           </div>
         </div>

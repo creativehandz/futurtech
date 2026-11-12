@@ -1,8 +1,10 @@
 /* ============ FuturTech — Global Styles ============ */
 :root {
+  --accent-purple: #6b22ba;
+  --accent-purple-hover: #581c9a;
   --blue-900: #0a2540;
   --blue-800: #0d3b7a;
-  --blue-700: #1249a8;
+  --blue-700: #6b22ba;
   --blue-600: #1a5cd6;
   --blue-500: #2970ff;
   --blue-100: #e3edff;
@@ -45,7 +47,7 @@ h1, h2, h3, h4 {
 }
 
 a {
-  color: var(--blue-600);
+  color: var(--accent-purple);
   text-decoration: none;
 }
 
@@ -77,33 +79,33 @@ ul {
 }
 
 .btn-primary {
-  background: var(--blue-600);
+  background: var(--accent-purple);
   color: var(--white);
 }
 
 .btn-primary:hover {
-  background: var(--blue-700);
+  background: var(--accent-purple-hover);
   transform: translateY(-2px);
   box-shadow: var(--shadow-md);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--blue-600);
-  border-color: var(--blue-600);
+  color: var(--accent-purple);
+  border-color: var(--accent-purple);
 }
 
 .btn-outline:hover {
-  background: var(--blue-50);
+  background: #f5edfb;
 }
 
 .btn-light {
   background: var(--white);
-  color: var(--blue-700);
+  color: var(--accent-purple);
 }
 
 .btn-light:hover {
-  background: var(--blue-100);
+  background: #f5edfb;
   transform: translateY(-2px);
 }
 
@@ -176,13 +178,13 @@ ul {
 }
 
 .nav-links a:hover {
-  color: var(--blue-600);
-  background: var(--blue-50);
+  color: var(--accent-purple);
+  background: #f5edfb;
 }
 
 .nav-links a.active {
-  color: var(--blue-600);
-  background: var(--blue-50);
+  color: var(--accent-purple);
+  background: #f5edfb;
   font-weight: 600;
 }
 
@@ -198,7 +200,7 @@ ul {
 .nav-links a.nav-cta:hover,
 .nav-links a.nav-cta.active {
   color: var(--white);
-  background: var(--blue-700);
+  background: var(--accent-purple-hover);
 }
 
 .brand-logo {
@@ -298,9 +300,7 @@ ul {
 
 /* ---------- Hero ---------- */
 .hero {
-  background:
-    radial-gradient(1000px 500px at 85% -10%, rgba(41, 112, 255, 0.35), transparent),
-    linear-gradient(135deg, var(--blue-900) 0%, var(--blue-800) 55%, var(--blue-700) 100%);
+  background: var(--accent-purple);
   color: var(--white);
   padding: 110px 0 120px;
   position: relative;
@@ -876,7 +876,7 @@ ul {
 
 /* ---------- Footer ---------- */
 .footer {
-  background: var(--blue-900);
+  background: var(--accent-purple);
   color: var(--blue-100);
   padding: 64px 0 0;
   margin-top: auto;
@@ -890,12 +890,14 @@ ul {
 }
 
 .footer .brand {
-  color: var(--white);
   margin-bottom: 16px;
 }
 
-.footer .brand span {
-  color: #7aa7ff;
+.footer-brand {
+  width: fit-content;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--white);
 }
 
 .footer-about {

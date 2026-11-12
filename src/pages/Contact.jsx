@@ -31,11 +31,11 @@ export default function Contact() {
               <div className="contact-line">
                 <div className="ci">📍</div>
                 <div>
-                  <strong>Office</strong>
+                  <strong>Registered Office</strong>
                   <span>
-                    100 Innovation Drive,
+                    167-169 Great Portland Street,
                     <br />
-                    Tech City, TC 10100
+                    London, England, W1W 5PF
                   </span>
                 </div>
               </div>
